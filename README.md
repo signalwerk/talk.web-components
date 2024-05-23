@@ -1,4 +1,4 @@
-# Web Components – Should I Be Interested?
+# Web Components – Should I be Interested?
 
 [Show Slides](https://signalwerk.github.io/talk.web-components/)
 
