@@ -1,6 +1,6 @@
 ---
 theme: signalwerk
-title: Web Components
+title: In the Shadows
 ---
 
 ```fm
@@ -12,7 +12,7 @@ background: true
 
 # {{process.content.frontmatter.title}}
 
-_Should I be Interested?_
+_A Web Component Story_
 
 <footer>
 
@@ -43,6 +43,298 @@ background:
 Illustration by [Benjamin Güdel](http://www.guedel.biz/) · 2020
 
 </footer>
+
+--s--
+
+## Overview
+
+- Examples and Demos
+- Bridge Frameworks
+- Server-Rendering
+
+--s--
+
+```fm
+style: negative
+background: true
+```
+
+## Examples
+
+# Low-Tech approach
+
+
+_Why use React/Vue/Svelte if I can be cheap?_
+
+
+--s--
+
+## Slides
+
+<div style="font-size: 0.7em;">
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>title</title>
+  </head>
+  <body>
+    <!-- page content -->
+    <slides-component href="slides.md"></slides-component>
+  </body>
+</html>
+```
+
+</div>
+
+<footer>
+It's not at all how I built this presentation. But let's start simple.
+</footer>
+
+--s--
+
+## Slides
+
+**HTML**
+
+<div style="font-size: 0.8em;">
+
+```html
+<slides-component href="slides.md"></slides-component>
+```
+
+</div>
+
+**Markdowns**
+
+```md
+# Hello Slide 1
+
+––s––
+
+# World Slide 2
+```
+
+--s--
+
+## Component Slides
+
+<div style="font-size: 0.7em;">
+
+```js
+// fetch from the href attribute
+fetch(this.getAttribute("href"))
+  .then((response) => response.text())
+  .then((text) => {
+    // split the slides
+    const slides = text.split("––s––");
+
+    // create slide components
+    slides.forEach((slide) => {
+      const slideElement = document.createElement("<slide-component>");
+      slideElement.innerHTML = this.convertMarkdownToHtml(slide);
+      this.shadowRoot.appendChild(slideElement);
+    });
+  });
+```
+
+</div>
+
+--s--
+
+## Component Slides
+
+**from**
+
+<div style="font-size: 0.6em;">
+
+```html
+<slides-component href="slides.md"></slides-component>
+```
+
+</div>
+
+**to**
+
+<div style="font-size: 0.6em;">
+
+```html
+<slides-component href="slides.md">
+  #shadow-root
+  <slide-component>...</slide-component>
+  <slide-component>...</slide-component>
+</slides-component>
+```
+
+</div>
+
+--s--
+
+## Component Slides
+
+**from**
+
+<div style="font-size: 0.6em;">
+
+```html
+<slides-component href="slides.md"></slides-component>
+```
+
+</div>
+
+**to**
+
+<div style="font-size: 0.6em;">
+
+```html
+<slides-component href="slides.md">
+  #shadow-root
+  <slide-component>
+    #shadow-root
+    <h1>Hello Slide 1</h1>
+  </slide-component>
+  <slide-component>
+    #shadow-root
+    <h1>World Slide 2</h1>
+  </slide-component>
+</slides-component>
+```
+
+</div>
+
+--s--
+
+## Add more components
+
+**Markdowns**
+
+```md
+# Hello Slide 1
+
+<video-button></video-button>
+
+––s––
+
+# World Slide 2
+```
+
+--s--
+## Add more components
+
+
+
+<div style="font-size: 0.6em;">
+
+```html
+<slides-component href="slides.md">
+  #shadow-root
+   
+   
+   
+   
+   
+   
+   
+   
+   
+</slides-component>
+```
+
+</div>
+
+--s--
+
+## Add more components
+
+
+
+<div style="font-size: 0.6em;">
+
+```html
+<slides-component href="slides.md">
+  #shadow-root
+  <slide-component>
+    #shadow-root
+    <h1>Hello Slide 1</h1>
+ 
+ 
+ 
+ 
+  </slide-component>
+  ...
+</slides-component>
+```
+
+</div>
+
+--s--
+
+## Add more components
+
+
+
+<div style="font-size: 0.6em;">
+
+```html
+<slides-component href="slides.md">
+  #shadow-root
+  <slide-component>
+    #shadow-root
+    <h1>Hello Slide 1</h1>
+    <video-button>
+      #shadow-root
+      
+    </video-button>
+  </slide-component>
+  ...
+</slides-component>
+```
+
+</div>
+--s--
+
+## Add more components
+
+
+
+<div style="font-size: 0.6em;">
+
+```html
+<slides-component href="slides.md">
+  #shadow-root
+  <slide-component>
+    #shadow-root
+    <h1>Hello Slide 1</h1>
+    <video-button>
+      #shadow-root
+      <video></video>
+    </video-button>
+  </slide-component>
+  ...
+</slides-component>
+```
+
+</div>
+
+--s--
+
+## Styling?
+
+- part
+- variable
+- :host
+
+
+--s--
+
+```fm
+style: negative
+background: true
+```
+
+
 
 --s--
 
