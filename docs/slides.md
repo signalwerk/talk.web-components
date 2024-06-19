@@ -224,6 +224,8 @@ fetch(this.getAttribute("href"))
 
 <div style="font-size: 0.6em;">
 
+<!-- prettier-ignore-start -->
+
 ```html
 <slides-component href="slides.md">
   #shadow-root
@@ -239,6 +241,8 @@ fetch(this.getAttribute("href"))
 </slides-component>
 ```
 
+<!-- prettier-ignore-end -->
+
 </div>
 
 --s--
@@ -246,6 +250,8 @@ fetch(this.getAttribute("href"))
 ## Add more components
 
 <div style="font-size: 0.6em;">
+
+<!-- prettier-ignore-start -->
 
 ```html
 <slides-component href="slides.md">
@@ -262,6 +268,8 @@ fetch(this.getAttribute("href"))
 </slides-component>
 ```
 
+<!-- prettier-ignore-end -->
+
 </div>
 
 --s--
@@ -269,6 +277,8 @@ fetch(this.getAttribute("href"))
 ## Add more components
 
 <div style="font-size: 0.6em;">
+
+<!-- prettier-ignore-start -->
 
 ```html
 <slides-component href="slides.md">
@@ -284,6 +294,8 @@ fetch(this.getAttribute("href"))
   ...
 </slides-component>
 ```
+
+<!-- prettier-ignore-end -->
 
 </div>
 --s--
