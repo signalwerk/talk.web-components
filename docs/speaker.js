@@ -2,29 +2,29 @@ class VideoButton extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.shadowRoot.innerHTML = `
-        <style>
-          :host {
-            display: none;
-          }
-          :host(.show) {
-            display: flex;
-          }
-          video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-         .tooltip {
-            display: none;
-          }
-        </style>
-        <video autoplay></video>
-        <div part="tooltip" class="tooltip">
-          Ctrl + H: Toggle video stream<br>
-          Ctrl + F: Fullscreen video
-        </div>
-      `;
+    this.shadowRoot.innerHTML = /* HTML */ `
+      <style>
+        :host {
+          display: none;
+        }
+        :host(.show) {
+          display: flex;
+        }
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .tooltip {
+          display: none;
+        }
+      </style>
+      <video autoplay></video>
+      <div part="tooltip" class="tooltip">
+        Ctrl + H: Toggle video stream<br />
+        Ctrl + F: Fullscreen video
+      </div>
+    `;
     this.stream = null;
   }
 

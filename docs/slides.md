@@ -63,7 +63,7 @@ background: true
 
 # Low-Tech approach
 
-_Why use React/Vue/Svelte if I can be cheap?_
+_Use without a framework like React/Vue/Svelte_
 
 --s--
 
@@ -76,11 +76,14 @@ _Why use React/Vue/Svelte if I can be cheap?_
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>title</title>
+    <title>Slides</title>
+    <script src="deck-component.js"></script>
+    <script src="slide-component.js"></script>
+    <script src="carousel-component.js"></script>
   </head>
   <body>
     <!-- page content -->
-    <slides-component href="slides.md"></slides-component>
+    <deck-component href="slides.md" />
   </body>
 </html>
 ```
@@ -95,17 +98,12 @@ It's not at all how I built this presentation. But let's start simple.
 
 ## Slides
 
-**HTML**
+<div class="grid">
+<div class="col4">
+
+**slides.md**
 
 <div style="font-size: 0.8em;">
-
-```html
-<slides-component href="slides.md"></slides-component>
-```
-
-</div>
-
-**Markdowns**
 
 ```md
 # Hello Slide 1
@@ -114,6 +112,24 @@ It's not at all how I built this presentation. But let's start simple.
 
 # World Slide 2
 ```
+
+</div>
+
+</div>
+<div class="col8">
+
+**HTML**
+
+<div style="font-size: 0.8em;">
+
+```html
+<deck-component href="slides.md" />
+```
+
+</div>
+
+</div>
+</div>
 
 --s--
 
@@ -142,194 +158,248 @@ fetch(this.getAttribute("href"))
 
 --s--
 
-## Component Slides
+## Slides
 
-**from**
+<div class="grid">
+<div class="col4">
 
-<div style="font-size: 0.6em;">
+**slides.md**
 
-```html
-<slides-component href="slides.md"></slides-component>
-```
-
-</div>
-
-**to**
-
-<div style="font-size: 0.6em;">
-
-```html
-<slides-component href="slides.md">
-  #shadow-root
-  <slide-component>...</slide-component>
-  <slide-component>...</slide-component>
-</slides-component>
-```
-
-</div>
-
---s--
-
-## Component Slides
-
-**from**
-
-<div style="font-size: 0.6em;">
-
-```html
-<slides-component href="slides.md"></slides-component>
-```
-
-</div>
-
-**to**
-
-<div style="font-size: 0.6em;">
-
-```html
-<slides-component href="slides.md">
-  #shadow-root
-  <slide-component>
-    #shadow-root
-    <h1>Hello Slide 1</h1>
-  </slide-component>
-  <slide-component>
-    #shadow-root
-    <h1>World Slide 2</h1>
-  </slide-component>
-</slides-component>
-```
-
-</div>
-
---s--
-
-## Add more components
-
-**Markdowns**
+<div style="font-size: 0.8em;">
 
 ```md
 # Hello Slide 1
-
-<video-button></video-button>
 
 ––s––
 
 # World Slide 2
 ```
 
---s--
+</div>
 
-## Add more components
+</div>
+<div class="col8">
 
-<div style="font-size: 0.6em;">
+**DOM**
 
-<!-- prettier-ignore-start -->
+<div style="font-size: 0.8em;">
 
 ```html
-<slides-component href="slides.md">
+<deck-component href="slides.md">
   #shadow-root
-   
-   
-   
-   
-   
-   
-   
-   
-   
-</slides-component>
+  <slide-component>...</slide-component>
+  <slide-component>...</slide-component>
+</deck-component>
 ```
 
-<!-- prettier-ignore-end -->
+</div>
 
+</div>
 </div>
 
 --s--
 
-## Add more components
+## Slides
 
-<div style="font-size: 0.6em;">
+<div class="grid">
+<div class="col4">
 
-<!-- prettier-ignore-start -->
+**slides.md**
+
+<div style="font-size: 0.8em;">
+
+```md
+# Hello Slide 1
+```
+
+</div>
+
+</div>
+<div class="col8">
+
+**DOM**
+
+<div style="font-size: 0.8em;">
 
 ```html
-<slides-component href="slides.md">
+<slide-component>
   #shadow-root
-  <slide-component>
+  <h1>Hello Slide 1</h1>
+</slide-component>
+```
+
+</div>
+
+</div>
+</div>
+
+--s--
+
+## Slides
+
+<div class="grid">
+<div class="col4">
+
+**slides.md**
+
+<div style="font-size: 0.8em;">
+
+```md
+# Hello Slide 1
+
+<carousel-component>
+
+![cat](./cat_a.jpg)
+![cat](./cat_b.jpg)
+![cat](./cat_c.jpg)
+
+</carousel-component>
+```
+
+</div>
+
+</div>
+<div class="col8">
+
+**DOM**
+
+<div style="font-size: 0.8em;">
+
+```html
+<slide-component>
+  #shadow-root
+  <h1>Hello Slide 1</h1>
+
+  <carousel-component>
     #shadow-root
-    <h1>Hello Slide 1</h1>
- 
- 
- 
- 
-  </slide-component>
-  ...
-</slides-component>
+    <img src="./cat_a.jpg" alt="cat" />
+    <img src="./cat_b.jpg" alt="cat" />
+    <img src="./cat_c.jpg" alt="cat" />
+  </carousel-component>
+</slide-component>
 ```
 
-<!-- prettier-ignore-end -->
+</div>
+
+</div>
+</div>
+
+--s--
+
+## Hello Slide 1
+
+<div class="box box--w60p">
+
+<carousel-component>
+<img src="./img/cat_a.jpg" alt="cat" />
+<img src="./img/cat_b.jpg" alt="cat" />
+<img src="./img/cat_c.jpg" alt="cat" />
+</carousel-component>
 
 </div>
 
 --s--
 
-## Add more components
+## Styling
 
-<div style="font-size: 0.6em;">
+The _advantage_ and _disadvantage_ of Web Components is that they are **encapsulated**.
 
-<!-- prettier-ignore-start -->
+<hr />
+
+### To style with a **Shadow DOM**
+
+- `--css-variables` → define variables
+- `:part()`-selector → styles a part of the component
+- `:slotted()`-selector → styles a slotted element
+- (`:host`-selector → styles the host element)
+
+--s--
+
+## Styling
+
+<style>
+.hr-thin { margin: 0;}
+
+  warn-component {
+      --font-size: 1rem;
+  }
+style.visible {
+display: block;
+font-size: 0.4rem;
+padding: 0;
+margin: 0;
+}
+
+
+</style>
+
+<div class="grid">
+<div class="col5">
+
+<warn-component>
+  <span>Text</span> <small>small</small>
+</warn-component>
+
+<div style="font-size: 0.45em">
+
+<hr class="hr-thin"/>
 
 ```html
-<slides-component href="slides.md">
-  #shadow-root
-  <slide-component>
-    #shadow-root
-    <h1>Hello Slide 1</h1>
-    <video-button>
-      #shadow-root
-      
-    </video-button>
-  </slide-component>
-  ...
-</slides-component>
+<div>
+  <div class="name" part="name">Warning</div>
+  <slot part="slotted-content"></slot>
+</div>
 ```
 
-<!-- prettier-ignore-end -->
+<hr class="hr-thin"/>
+
+```css
+:host {
+  background-color: var(--card-bg-color, red);
+}
+::slotted(small) {
+  text-transform: uppercase;
+}
+```
 
 </div>
---s--
 
-## Add more components
+</div>
+<div class="col1">
+</div>
+<div class="col6">
 
-<div style="font-size: 0.6em;">
+<div style="font-size: 0.45em">
+
+<hr class="hr-thin"/>
 
 ```html
-<slides-component href="slides.md">
-  #shadow-root
-  <slide-component>
-    #shadow-root
-    <h1>Hello Slide 1</h1>
-    <video-button>
-      #shadow-root
-      <video></video>
-    </video-button>
-  </slide-component>
-  ...
-</slides-component>
+<warn-component>
+  <span>Text</span>
+  <small>small</small>
+</warn-component>
 ```
 
 </div>
 
---s--
+<pre>
+<code>
+<style class="visible" contenteditable data-lt-active="false">
 
-## Styling?
+warn-component {
+  --card-bg-color: #f0f0f0;
+}
 
-## ⚠️ make short example with video-button
+warn-component::part(name) {
+  color: red;
+}
 
-- part
-- variable
-- :host
+</style>
+</code>
+</pre>
+
+</div>
+</div>
 
 --s--
 
@@ -374,11 +444,17 @@ background: true
 
 ## Vue 3 integration
 
-## ⚠️ Screenshot missing
+![alt text](img/migros-gruppe.jobs-vue3-dark.png)
 
 --s--
 
-## Vue 2 nutzt eine Vue 3 Komponente
+## Vue 3 integration
+
+![alt text](img/migros-gruppe.jobs-vue3-dark.png)
+
+--s--
+
+## Vue 2 uses a Vue 3 component
 
 <div style="font-size: 0.5em;">
 
@@ -455,31 +531,6 @@ background: true
     <!-- page content -->
     <h1>Title of page</h1>
     <p>Text of page</p>
-    <input type="search" />
-  </body>
-</html>
-```
-
-</div>
-
---s--
-
-## Do you need it?
-
-<div style="font-size: 0.8em;">
-
-```html
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <title>…</title>
-    <meta property="og:description" content="…" />
-  </head>
-  <body>
-    <!-- page content -->
-    <h1>Title of page</h1>
-    <p>Text of page</p>
     <search-panel-component … />
   </body>
 </html>
@@ -489,15 +540,15 @@ background: true
 
 --s--
 
-## Do you need it?
+## Keep SEO in mind
 
 <div style="font-size: 0.8em;">
 
 ```html
 <carousel-component>
-  <image-component path="http://placekitten.com/360/200" />
-  <image-component path="http://placekitten.com/300/200" />
-  <image-component path="http://placekitten.com/420/200" />
+  <image-component path="./img/cat_a.jpg" />
+  <image-component path="./img/cat_b.jpg" />
+  <image-component path="./img/cat_c.jpg" />
 </carousel-component>
 ```
 
@@ -505,59 +556,74 @@ background: true
 
 --s--
 
-## Do you need it?
+## Keep SEO in mind
 
 <div style="font-size: 0.8em;">
 
 ```html
 <carousel-component>
-  <img src="http://placekitten.com/360/200" />
-  <img src="http://placekitten.com/300/200" />
-  <img src="http://placekitten.com/420/200" />
+  <img src="./img/cat_a.jpg" alt="cat" />
+  <img src="./img/cat_b.jpg" alt="cat" />
+  <img src="./img/cat_c.jpg" alt="cat" />
 </carousel-component>
 ```
 
 </div>
 
-# ⚠️ ADD Component
+--s--
 
-<template id="carousel">
-  <style>
-    :host {
-      display: flex;
-    }
-    
-    #images {
-      flex-shrink: 1;
-      display: flex;
-      overflow: scroll;
-    }
-  </style>
-  <button id="prev">Prev</button>
-  <div id="images">
-    <slot></slot>
-  </div>
-  <button id="next">Next</button>
-</template>
+## It's hard
 
-<!-- <carousel-component>
-  <img src="http://placekitten.com/360/200">
-  <img src="http://placekitten.com/300/200">
-  <img src="http://placekitten.com/420/200">
-</carousel-component> -->
+- Web Components can contain _all kind of logic_
+- Without a full **DOM/Browser** it might get hairy
 
 --s--
 
-## Avoid it!
+## Example Migros MDX
 
-- Web Components can contain all kind of logic
-- Server-Side-Rendering is hard
+<footer>
+
+[Modal Migros MDX](https://mdx.migros.ch/latest/components/modal/usage-TJz3pHvg)
+
+</footer>
+
+```html
+<mdx-button>
+  <span>Label</span>
+</mdx-button>
+```
+
+<br />
+
+<mdx-button onclick="console.log('hi!')">
+<span>Label</span>
+</mdx-button>
 
 --s--
 
-## Example MDX
+## Example Migros MDX
 
-- [Modal Migros](https://mdx.migros.ch/latest/components/modal/usage-TJz3pHvg)
+<footer>
+
+[Modal Migros MDX](https://mdx.migros.ch/latest/components/modal/usage-TJz3pHvg)
+
+</footer>
+
+```html
+<mdx-date-picker></mdx-date-picker>
+```
+
+<mdx-date-picker
+        month-mode-title="Select a month"
+        year-mode-title="Select a year"
+        return-button-label="Return to calendar"
+        cancel-button-label="Cancel"
+        submit-button-label="Submit"
+        input-label="Date"
+        language="de"
+        arrowuparialabel="Move back in time"
+        arrowdownarialabel="Move forward in time"
+      ></mdx-date-picker>
 
 --s--
 
@@ -570,13 +636,13 @@ background: true
 
 ## Render React in Vue
 
-# ⚠️ add date-picker and SSR
+<!-- # ⚠️ add date-picker and SSR -->
 
 <div style="font-size: 0.8em;">
 
 ```html
 <template>
-  <your-react-component></your-react-component>
+  <mdx-button>Label</mdx-button>
 </template>
 ```
 
@@ -584,55 +650,61 @@ background: true
 
 --s--
 
-## Render React in Vue
+## Vue `<mdx-button />`
 
-# ⚠️ show whole example
+<style>
 
-<div style="font-size: 0.8em;">
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+</style>
+
+<div style="font-size: 0.75em; overflow-y: scroll; height: 14rem;">
 
 ```html
 <template>
   <div ref="reactRoot" v-html="ssrContent"></div>
 </template>
-```
 
-</div>
+<script setup>
+  import { onMounted, ref } from "vue";
+  import React from "react";
+  import { renderToString } from "react-dom/server";
+  import { hydrateRoot, createRoot } from "react-dom/client";
 
---s--
+  import mdxButton from "../react/mdx-button";
 
-## Render React in Vue
+  const reactRoot = ref(null);
+  let root = null;
 
-<div style="font-size: 0.8em;">
+  const ssrContent = ref("");
 
-```js
-import { renderToString } from "react-dom/server";
-import { hydrateRoot, createRoot } from "react-dom/client";
+  if (process.server) {
+    ssrContent.value = renderToString(mdxButton);
+  }
 
-import YourReactComponent from "../react/test";
-```
+  if (process.client) {
+    onMounted(() => {
+      if (reactRoot.value) {
+        root = hydrateRoot
+          ? hydrateRoot(reactRoot.value, component)
+          : createRoot(reactRoot.value).render(component);
+      }
+    });
+  }
 
-</div>
-
---s--
-
-## Render React in Vue
-
-<div style="font-size: 0.8em;">
-
-```js
-if (process.server) {
-  ssrContent.value = renderToString(YourReactComponent);
-}
-
-if (process.client) {
-  onMounted(() => {
-    if (reactRoot.value) {
-      root = hydrateRoot
-        ? hydrateRoot(reactRoot.value, YourReactComponent)
-        : createRoot(reactRoot.value).render(YourReactComponent);
+  onBeforeUnmount(() => {
+    if (root) {
+      root.unmount();
     }
   });
-}
+</script>
 ```
 
 </div>
