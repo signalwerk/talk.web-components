@@ -8,7 +8,9 @@ class UserProfile extends HTMLElement {
       <!-- <div class="close" part="close">&times;</div> -->
       <div>
         <div class="name" part="name">Warning</div>
-        <slot part="slotted-content"></slot>
+        <div class="content">
+          <slot part="slotted-content"></slot>
+        </div>
       </div>
     `;
 
@@ -20,31 +22,17 @@ class UserProfile extends HTMLElement {
           background-color: var(--card-bg-color, red);
           position: relative;
           font-size: var(--font-size, 16px);
-          padding: 0.5em;
+          /* padding: 0.5em; */
 
-        }
-        .close {
-          position: absolute;
-          top: 0;
-          right: 0;
-          color: var(--close-button-color, red);
-          cursor: pointer;
-          display: inline-block;
-          line-height: 1;
-          width: 0.7em; 
-          aspect-ratio: 1 / 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          font-size: 1em;    
-        }
-        .close:hover {
-          color: black !important;
         }
         .name {
           font-size: 0.5em;
-          margin-top: 10px;
+          padding: 0.25em  0.5em;
+          background-color: black;
+          color: white;
+        }
+        .content {
+          padding: 0.5em;
         }
         ::slotted(small) {
           text-transform: uppercase;

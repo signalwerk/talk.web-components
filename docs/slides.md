@@ -46,14 +46,6 @@ Illustration by [Benjamin Güdel](http://www.guedel.biz/) · 2020
 
 --s--
 
-## Overview (20min)
-
-- Examples and Demos
-- Bridge Frameworks
-- Server-Rendering
-
---s--
-
 ```fm
 style: negative
 background: true
@@ -300,11 +292,18 @@ fetch(this.getAttribute("href"))
 
 --s--
 
+```fm
+style: negative
+background: true
+```
+
 ## Styling
 
-The _advantage_ and _disadvantage_ of Web Components is that they are **encapsulated**.
+# The _advantage_ and _disadvantage_ of Web Components is that they are **encapsulated**.
 
-<hr />
+--s--
+
+## Styling
 
 ### To style with a **Shadow DOM**
 
@@ -336,9 +335,13 @@ margin: 0;
 <div class="grid">
 <div class="col5">
 
+### Component
+
 <warn-component>
   <span>Text</span> <small>small</small>
 </warn-component>
+
+<br />
 
 <div style="font-size: 0.45em">
 
@@ -369,6 +372,8 @@ margin: 0;
 </div>
 <div class="col6">
 
+### Usage
+
 <div style="font-size: 0.45em">
 
 <hr class="hr-thin"/>
@@ -382,21 +387,37 @@ margin: 0;
 
 </div>
 
+
+
 <pre>
 <code>
-<style class="visible" contenteditable data-lt-active="false">
+<style class="visible" contentEditable="plaintext-only" data-lt-active="false">
 
 warn-component {
-  --card-bg-color: #f0f0f0;
+
 }
 
 warn-component::part(name) {
-  color: red;
+
 }
 
 </style>
 </code>
 </pre>
+
+<div style="font-size: 0.1em;">
+
+```css
+warn-component {
+  --card-bg-color: #f0f0f0;
+}
+
+warn-component::part(name) {
+  color: cyan;
+}
+```
+
+</div>
 
 </div>
 </div>
