@@ -1,6 +1,6 @@
 ---
 theme: signalwerk
-title: In the Shadows
+title: Web Components
 ---
 
 ```fm
@@ -12,7 +12,7 @@ background: true
 
 # {{process.content.frontmatter.title}}
 
-_A Web Component Story_
+_Should I be Interested?_
 
 <footer>
 
@@ -282,11 +282,11 @@ fetch(this.getAttribute("href"))
 
 <div class="box box--w60p">
 
-<carousel-component>
+<carousel-player>
 <img src="./img/cat_a.jpg" alt="cat" />
 <img src="./img/cat_b.jpg" alt="cat" />
 <img src="./img/cat_c.jpg" alt="cat" />
-</carousel-component>
+</carousel-player>
 
 </div>
 
@@ -322,13 +322,6 @@ background: true
   warn-component {
       --font-size: 1rem;
   }
-style.visible {
-display: block;
-font-size: 0.4rem;
-padding: 0;
-margin: 0;
-}
-
 
 </style>
 
@@ -387,11 +380,10 @@ margin: 0;
 
 </div>
 
-
-
 <pre>
 <code>
-<style class="visible" contentEditable="plaintext-only" data-lt-active="false">
+<style class="code" style="display:block;padding:1em;margin:0;font-size:0.4rem;
+" contentEditable="plaintext-only" spellcheck="false">
 
 warn-component {
 

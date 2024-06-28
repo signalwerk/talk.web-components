@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>In the Shadows – A Web Component Story</title>
+    <title>Web Components – Should I be Interested?</title>
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.signalwerk.ch" />
     <link
@@ -28,9 +28,14 @@
         border: 1px solid var(--blue-color);
       }
     </style>
-    <link rel="stylesheet" href="./speaker.css" />
-    <script src="./speaker.js"></script>
-    <script src="./carousel-component.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/531e52f/modules/speaker-video/styles.css"
+      media="all"
+    />
+    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/531e52f/modules/speaker-video/index.js"></script>
+    <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/fdd7272/modules/carousel-player/index.js"></script>
+
     <script src="./warn-component.js"></script>
     <link
       rel="stylesheet"
@@ -44,9 +49,8 @@
   <body class="migros--light">
     <!-- page content -->
     <signalwerk-slides href="slides.md"></signalwerk-slides>
+    <speaker-video></speaker-video>
     <!-- logic -->
     <script src="https://rawcdn.githack.com/signalwerk/signalwerk.slides.md/b9029b1/index.js"></script>
-
-    <video-button></video-button>
   </body>
 </html>

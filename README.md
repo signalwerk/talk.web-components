@@ -17,3 +17,7 @@ live-server
 ```sh
 bash <(curl -s https://raw.githubusercontent.com/signalwerk/signalwerk.slides.md/main/update.sh)
 ```
+
+## Talk History
+
+- 27. 6. 2024, 45 min, [Version `liipconf-2024`](https://github.com/signalwerk/talk.web-components/tree/liipconf-2024) · Louis Gollut, Stefan Huber
